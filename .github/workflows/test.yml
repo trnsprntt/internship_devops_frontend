@@ -31,5 +31,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args:
-            -Dsonar.projectKey=develop 
+            -Dsonar.organization=trnsprntt
+            -Dsonar.projectKey=internship_devops_frontend
             -Dsonar.sources=. 
