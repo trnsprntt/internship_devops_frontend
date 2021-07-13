@@ -1,2 +1,4 @@
 .eslintcache
 build
+node-modules
+npm-debug.log
