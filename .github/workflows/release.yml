@@ -34,5 +34,5 @@ jobs:
           event_type: workflow_dispatch
           message: |
             {
-              "new_tag": "${{ github.sha }}"
+              "new_tag": "${{ github.sha }}", "tier":"frontend"
             }
