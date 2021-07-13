@@ -1,6 +1,6 @@
 FROM node:16-slim as stage1
 WORKDIR /app
-COPY package*.json ./
+COPY package*.json .
 RUN npm install
 
 FROM node:16-slim 
