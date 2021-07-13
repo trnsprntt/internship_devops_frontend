@@ -25,14 +25,11 @@ jobs:
           tags: trnsprntt/internship_devops_frontend:${{ github.sha }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-      - name: send image digest to another repository
-        uses: mvasigh/dispatch-action@main
+      - name: Invoke workflow in another repo with inputs
+        uses: benc-uk/workflow-dispatch@v1
         with:
+          workflow: change tag in helm charts
+          repo: trnsprntt/internship_devops_infrastructure
           token: ${{ secrets.GIT_TOKEN }}
-          repo: internship_devops_infrastructure
-          owner: trnsprntt
-          event_type: workflow_dispatch
-          message: |
-            {
-              "new_tag": "${{ github.sha }}", "tier":"frontend"
-            }
+          inputs: '{ "new_tag": "${{ github.sha }}", "tier":"frontend" }'
+
