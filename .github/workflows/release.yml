@@ -30,6 +30,7 @@ jobs:
         with:
           workflow: change tag in helm charts
           repo: trnsprntt/internship_devops_infrastructure
+          ref: master
           token: ${{ secrets.GIT_TOKEN }}
           inputs: '{ "new_tag": "${{ github.sha }}", "tier":"frontend" }'
 
