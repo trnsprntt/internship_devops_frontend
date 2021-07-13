@@ -1,6 +1,5 @@
 name: release
-env:
-  APP_NAMESPACE: default 
+
 on:
   release:
     types: [created]
