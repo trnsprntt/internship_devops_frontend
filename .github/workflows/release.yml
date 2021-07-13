@@ -28,7 +28,7 @@ jobs:
       - name: send image digest to another repository
         uses: mvasigh/dispatch-action@main
         with:
-          token: ${{ secrets.INFRASTRUCTURE_TOKEN }}
+          token: ${{ secrets.GIT_TOKEN }}
           repo: internship_devops_infrastructure
           owner: trnsprntt
           event_type: workflow_dispatch
