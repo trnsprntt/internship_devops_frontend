@@ -5,14 +5,14 @@ RUN npm install
 
 FROM node:16-slim as stage2
 WORKDIR /app
-COPY --from=stage1 /app/node_modules /app/node_modules
 COPY . /app
+COPY --from=stage1 /app/node_modules /app/node_modules
 ARG REACT_APP_BASE_URL=""
 RUN npm run build
 
 FROM nginx:latest
-COPY --from=stage2 /app/nginx/ /etc/nginx/templates
 COPY --from=stage2 /app/build /usr/share/nginx/html
+COPY --from=stage2 /app/nginx/ /etc/nginx/templates
 RUN rm -rf /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d
 ENV REACT_APP_BASE_URL=http://localhost:5000
